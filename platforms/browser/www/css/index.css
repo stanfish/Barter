@@ -1,0 +1,59 @@
+.page-container{
+    overflow-y:scroll;
+    height:calc(100% - 80px);
+}
+
+.tab-icon1 {
+    width: 40px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon1-ios.svg");
+}
+
+.tab-icon2 {
+    width: 53px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon2-ios.svg");
+}
+
+.tab-icon3 {
+    width: 63px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon3-ios.svg");
+}
+
+.tab-icon4 {
+    width: 59px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon4-ios.svg");
+}
+
+
+.tab-icon1.active {
+    width: 40px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon1a-ios.svg");
+}
+
+.tab-icon2.active {
+    width: 53px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon2a-ios.svg");
+}
+
+.tab-icon3.active {
+    width: 63px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon3a-ios.svg");
+}
+
+.tab-icon4.active {
+    width: 59px;
+    height: 40px;
+    background-image: url("../lib/framework7/img/icon4a-ios.svg");
+}
+
+
+.icon-view {
+    text-align:center;
+    cursor:pointer;
+}

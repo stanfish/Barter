@@ -1,0 +1,36 @@
+/* Your app custom files in this file */
+/* Tab bar icons */
+i.tabbar-demo-icon-1 {
+  width: 30px;
+  height: 30px;
+  background-image: url("../lib/framework7/img/icon1-ios.svg");;
+}
+.active i.tabbar-demo-icon-1 {
+  background-image: url("../lib/framework7/img/icon1a-ios.svg");
+}
+i.tabbar-demo-icon-2 {
+  width: 25px;
+  height: 30px;
+  background-image: url("../lib/framework7/img/icon2-ios.svg");
+}
+.active i.tabbar-demo-icon-2 {
+  background-image: url("../lib/framework7/img/icon2a-ios.svg");
+}
+i.tabbar-demo-icon-3 {
+  width: 30px;
+  height: 30px;
+  background-image: url("../lib/framework7/img/icon3-ios.svg");
+}
+.active i.tabbar-demo-icon-3 {
+  background-image: url("../lib/framework7/img/icon3a-ios.svg");
+}
+i.tabbar-demo-icon-4 {
+  width: 25px;
+  height: 30px;
+  background-image: url("../lib/framework7/img/icon4-ios.svg");
+}
+.active i.tabbar-demo-icon-4 {
+  background-image: url("../lib/framework7/img/icon4a-ios.svg");
+}
+
+

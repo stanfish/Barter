@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" />  -->
+    <!-- <link type="text/css" href="css/jquery.mmenu.css" rel="stylesheet" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+
+    <title>Barter Game</title>
+</head>
+
+<body>
+
+
+
+<!-- 
+      
+      <div class="page">
+         <div class="header">
+            <a href="#menu"></a>
+            Demo
+         </div>
+         <div class="content">
+            <p><strong>This is a demo.</strong><br />
+               Click the menu icon to open the menu.</p>
+         </div>
+      </div>
+
+      
+      <nav id="menu">
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About us</a>
+               <ul>
+                  <li><a href="/about/history">History</a></li>
+                  <li><a href="/about/team">The team</a></li>
+                  <li><a href="/about/address">Our address</a></li>
+               </ul>
+            </li>
+            <li><a href="/contact">Contact</a></li>
+         </ul>
+      </nav>
+
+ -->
+
+<!-- 
+
+    <div class="app">
+   <div id="my-page">
+      <div id="my-header">
+        <h1>Barter Game</h1>
+      </div>
+      <div id="my-content">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+            <span id="rid"></span>
+            <input name=did id=did><br>
+
+    <button onclick="capturePhoto();">Capture Photo</button> <br>
+
+    <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
+    <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+           <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+           <img style="display:none;" id="largeImage" src="" />
+        </div>
+      </div>
+      <div id="my-footer"></div>
+   </div>
+    </div>
+ -->
+
+<div id="view1Page" class="page-container">
+  <div class="page-content">
+    <div class="content-block-title">Profile</div>
+    <div class="content-block">
+        <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner"> 
+                  <div class="item-title label">Name</div>
+                  <div class="item-input">
+                    <input type="text" id="nickName" placeholder="Your name" >
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="view3Page" class="page-container">
+  <div class="page-content">
+    <div class="content-block-title">Uploaded Items</div>
+    <div class="content-block">
+      <div class="list-block">
+        <ul>
+            <div id="uploadedList">
+              <li>
+                  <div class="item-content">
+                    <div class="item-inner"> 
+                      <div class="item-title">Item 1</div>
+                    </div>
+                  </div>
+              </li>
+              <li>
+                <div class="item-content">
+                    <div class="item-inner"> 
+                      <div class="item-title">Item 2</div>
+                    </div>
+                  </div>
+              </li>
+            </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="view4Page" class="page-container">
+  <div class="page-content">
+    <div class="content-block-title">Exchanging Items</div>
+    <div class="content-block">
+      <div class="list-block">
+        <ul>
+            <div id="upcomingList">
+              <li>
+                  <div class="item-content">
+                    <div class="item-inner"> 
+                      <div class="item-title">Item 1111</div>
+                    </div>
+                  </div>
+              </li>
+              <li>
+                <div class="item-content">
+                    <div class="item-inner"> 
+                      <div class="item-title">Item 22222</div>
+                    </div>
+                  </div>
+              </li>
+            </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="view2Page" class="page-container">
+  <div class="pages navbar-through">
+    <div data-page="index-2" class="page">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="center">Upload your item</div>
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="list-block">
+          <ul>
+            <li>
+                <a href="#" onclick="capturePhoto();" class="item-link">
+                    <div class="item-content" style="background-color:#007aff;">
+                      <div class="item-inner"> 
+                        <div class="item-title" style="width:100%;"><button style="width:100%;height: 50px;">Take a photo</button></div>
+                      </div>
+                    </div>
+                  </a>
+            </li>
+          </ul>
+          <center>
+              <img style="display:none;width:200px;height:200px;" id="smallImage" src="" />
+          </center>
+              <div id="uploadBlock" style="display:none;" >
+                <textarea style="border: solid black 1px; height: 70px;" rows="2" cols="50" id="description" placeholder="Brief Description"></textarea>
+                <a href="#" onclick="uploadPhoto();" class="item-link">
+                    <div class="item-content" style="background-color:#007aff;">
+                      <div class="item-inner"> 
+                        <div class="item-title" style="width:100%;"><button style="width:100%;height: 50px;">Submit</button></div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+      <div class="toolbar tabbar tabbar-labels" style="position:absolute;bottom:0;height:80px;">
+        <div class="toolbar-inner">
+          <div id="view1" class="icon-view" onclick="switchView(1);"> 
+            <div class="tab-icon1"></div>
+            <span class="tabbar-label">Profile</span>
+          </div>
+
+          <div id="view2" class="icon-view" onclick="switchView(2);"> 
+            <div class="tab-icon2"></div>
+            <span class="tabbar-label">Input</span>
+          </div>
+
+          <div id="view3" class="icon-view" onclick="switchView(3);"> 
+            <div class="tab-icon3"></div>
+            <span class="tabbar-label">Uploaded</span>
+          </div>
+
+
+          <div id="view4" class="icon-view" onclick="switchView(4);"> 
+            <div class="tab-icon4"></div>
+            <span class="tabbar-label">Inbox</span>
+          </div>
+
+        </div>
+      </div>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+
+
+  <h1>Barter Game</h1>
+<input name=did id=did><br>
+<button onclick="capturePhoto();">Capture Photo</button> <br><br>
+
+<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+  
+  a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>asadvfdgdga<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>asadvfdgdg
+ -->
